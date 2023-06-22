@@ -20,7 +20,6 @@ def Menu():
 
     # registra primeiras opções
     opcoesMenu = ["", "Sair"]
-    RegistraBancoDadosLocais(arquivo, arquivoBackup, opcoesMenu)
     
     opcoesMenu = ResgataBancoDados(arquivo)
     
