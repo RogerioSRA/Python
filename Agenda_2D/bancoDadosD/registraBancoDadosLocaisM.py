@@ -1,4 +1,13 @@
-def RegistraBancoDadosLocais(pacote, tarefa):
-    bancoDados = open(pacote[0], 'at')
-    bancoDados.write(tarefa + "\n")
-    bancoDados.close()
+def RegistraBancoDadosLocais(arquivo, arquivoBackup, opcoesMenu):
+    if len(opcoesMenu) > 2:
+        bdLocal = open(arquivo, "rt")
+        bdLBackup = open(arquivoBackup, "wt")
+        for local in bdLocal:
+            bdLBackup.write(local)
+        bdLocal = open(arquivo,"wt")
+        for item in opcoesMenu:
+            bdLocal.write(item+"\n")
+        bdLocal.close()
+        bdLBackup.close()
+
+

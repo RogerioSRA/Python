@@ -1,7 +1,7 @@
 import os
 from datetime import date
-from Python.Agenda_2D.menuM.tracoM import Traco
-from Python.Agenda_2D.menuM.headerM import Header
+from Python.Agenda_2D.menuD.tracoM import Traco
+from Python.Agenda_2D.menuD.headerM import Header
 
 
 def Listar_Tarefas(pacote):

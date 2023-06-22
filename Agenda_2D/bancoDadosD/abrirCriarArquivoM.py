@@ -1,7 +1,8 @@
-def Abrir_Criar_Arquivo(pacote):
-    try:
-        bancoDados = open(pacote[0], "rt")
-        bancoDados.close()
-    except:
-        bancoDados = open(pacote[0], "x")
-        bancoDados.close()
+def Abrir_Criar_Arquivo(arquivos):
+    for arquivo in arquivos:
+        try:
+            bancoDados = open(arquivo, "rt")
+            bancoDados.close()
+        except:
+            bancoDados = open(arquivo, "xt")
+            bancoDados.close()

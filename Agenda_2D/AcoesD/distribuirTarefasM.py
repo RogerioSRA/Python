@@ -1,8 +1,7 @@
-from Python.Agenda_2D.menuM.tracoM import Traco
-from Python.Agenda_2D.menuM.headerM import Header
-from Python.Agenda_2D.utilsD.escolhaM import Escolha
-from Python.Agenda_2D.menuM.printMenuM import Print_Menu
-from Python.Agenda_2D.bancoDadosD.abrirCriarArquivoM import Abrir_Criar_Arquivo
+from menuD.tracoM import Traco
+from menuD.headerM import Header
+from utilsD.escolhaM import Escolha
+from menuD.printMenuM import Print_Menu
 
 
 def Distribuir_Tarefas(pacoteBairro):
@@ -14,7 +13,6 @@ def Distribuir_Tarefas(pacoteBairro):
     Header(header)
     Traco("=")
     Print_Menu(opcoesMenu)
-    Abrir_Criar_Arquivo(arquivo)
     escolha = Escolha(frase, 0, len(opcoesMenu) - 2)
     pacote = [arquivo, header]
     if escolha == len(opcoesMenu) -1 : pacote = []

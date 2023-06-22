@@ -5,5 +5,6 @@ def Print_Menu(opcoesMenu):
         if funcao == "": continue
         if funcao == "Sair":
             enum = 0
-        print(f"{enum} - {funcao}")
+            print()
+        print(f"{enum:2} - {funcao}")
         enum += 1
