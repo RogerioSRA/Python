@@ -11,4 +11,5 @@ def Print_Menu(opcoesMenu):
         print(f"{enum:2} - {funcao}")
         enum += 1
 
+
         

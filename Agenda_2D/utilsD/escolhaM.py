@@ -13,3 +13,4 @@ def Escolha(frase = "null", min = 0, max = 1):
     else:
         return Escolha(frase, min, max)
     
+

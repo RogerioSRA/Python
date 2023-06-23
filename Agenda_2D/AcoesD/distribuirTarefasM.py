@@ -12,7 +12,7 @@ def Distribuir_Tarefas(pacoteBairro):
     # tarefa, frase
     os.system("clear")
     Salva_Pacotes(pacoteBairro)
-    opcoesMenu = ["", "Acrescentar Tarefa", "Excluir Tarefa", "Editar Tarefa", "Voltar", "Sair"]
+    opcoesMenu = ["", "Acrescentar Tarefa", "Excluir Tarefa", "Listar Tarefas", "Voltar", "Sair"]
     arquivo = pacoteBairro[0].replace("_","") +"_tarefas.txt"
     header = f" {pacoteBairro[0]} "
     frase = pacoteBairro[1]
@@ -30,4 +30,4 @@ def Distribuir_Tarefas(pacoteBairro):
         pacoteTarefa = [tarefa, header, frase, arquivo]
         eval(opcoesMenu[escolha].replace(" ","_"))(pacoteTarefa)
 
-        
+
