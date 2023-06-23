@@ -21,8 +21,8 @@ def Distribuir_Tarefas(pacoteBairro):
     Traco("=")
     Print_Menu(opcoesMenu)
     escolha = Escolha(frase, 0, len(opcoesMenu) - 2)
-    if escolha == len(opcoesMenu) -1 :
-        pacote = []
+    if escolha == 0 :
+        return exit()
     elif escolha == len(opcoesMenu) -2 :
         return menuM.Menu()
     else:

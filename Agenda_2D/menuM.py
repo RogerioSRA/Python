@@ -18,25 +18,31 @@ def Menu():
     if opcoesMenu == []:
         opcoesMenu = ["", "Sair", "Adicionar Local de Tarefas"]
         registraBancoDadosLocaisM.RegistraBancoDadosLocais(arquivo, arquivoBackup, opcoesMenu)
-    MenuMenu()
+    ImprimirMenu()
     printMenuM.Print_Menu(opcoesMenu) 
     frase = "Qual a sua escolha? "
     escolha = Escolha(frase, 0, len(opcoesMenu) - 3)
+
+    # Sair
     if escolha == 0: return exit()
+
+    # Registra uma Tarefa no Banco De Dados
     if escolha == 99:
-        MenuMenu()
+        ImprimirMenu()
         print()
         localDeTarefa = input("Entre o um 'Local De Tarefa': ")
         localDeTarefa = localDeTarefa.title()
         opcoesMenu.insert(len(opcoesMenu)-2, localDeTarefa)
         registraBancoDadosLocaisM.RegistraBancoDadosLocais(arquivo, arquivoBackup, opcoesMenu)
         return Menu()
+    
+    # Reune informações em pacote paratomada de decisões
     tarefa = opcoesMenu[escolha]
     pacoteBairro = [tarefa, frase]
     Distribuir_Tarefas(pacoteBairro)
 
 
-def MenuMenu():
+def ImprimirMenu():
     os.system("clear")
     header = " AGENDA "
     tracoM.Traco("=")
