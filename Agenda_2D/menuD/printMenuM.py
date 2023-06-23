@@ -6,5 +6,9 @@ def Print_Menu(opcoesMenu):
         if funcao == "Sair":
             enum = 0
             print()
+        if funcao == "Adicionar Local de Tarefas":
+            enum = 99
         print(f"{enum:2} - {funcao}")
         enum += 1
+
+        

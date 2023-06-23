@@ -11,3 +11,5 @@ def Locais():
     arquivo = "TarefasBoaVista.txt"
     pacoteBairro = [opcoesMenu, header, frase, arquivo]
     Distribuir_Tarefas(pacoteBairro)
+
+    

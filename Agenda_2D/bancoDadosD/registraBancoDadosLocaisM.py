@@ -1,14 +1,10 @@
 def RegistraBancoDadosLocais(arquivo, arquivoBackup, opcoesMenu):
-    print(len(opcoesMenu))
-    print(opcoesMenu)
-    if len(opcoesMenu) == 2 :
+    if len(opcoesMenu) <= 3:
         bdLocal = open(arquivo, "wt")
         for opcao in opcoesMenu:
             bdLocal.write(opcao+"\n")
         bdLocal.close()
-
-
-    if len(opcoesMenu) > 2:
+    elif len(opcoesMenu) > 3:
         bdLocal = open(arquivo, "rt")
         bdLBackup = open(arquivoBackup, "wt")
         for local in bdLocal:
@@ -18,5 +14,4 @@ def RegistraBancoDadosLocais(arquivo, arquivoBackup, opcoesMenu):
             bdLocal.write(item+"\n")
         bdLocal.close()
         bdLBackup.close()
-
 
