@@ -1,8 +1,9 @@
 from time import sleep
+from AcoesD.locaisM import Locais
 
 
 def Salva_Pacotes(pacoteRecebido = []):
-    arquivoPacote = "Salva_Pacotes.txt"
+    arquivoPacote = Locais("Salva-Pacotes.txt")
     pacote = pacoteRecebido
     if pacote != []:
         pacoteBackup = pacote

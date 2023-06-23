@@ -3,6 +3,7 @@ from time import sleep
 from datetime import date
 from menuD.tracoM import Traco
 from menuD.headerM import Header
+from AcoesD.locaisM import Locais
 from utilsD.escolhaM import Escolha
 from AcoesD import distribuirTarefasM
 from AcoesD.salvaPacotesM import Salva_Pacotes
@@ -27,6 +28,7 @@ def Acrescentar_Tarefa(pacoteDistribuir):
     frase = "Está correto este nome ? 1-Sim  2-Não : "
     escolha = Escolha(frase, 1, 2)
     if escolha == 1:
+        arquivo = Locais(arquivo)
         pacoteAcrescenta = [arquivo, tarefa]
         RegistraBancoDadosTarefas(pacoteAcrescenta)
         print(f"\nTarefa registrada na data de {date.today().day}-{date.today().month}-{date.today().year}")

@@ -2,13 +2,14 @@ import os
 from utilsD.escolhaM import Escolha
 from menuD import tracoM, headerM, printMenuM
 from AcoesD.distribuirTarefasM import Distribuir_Tarefas
+from AcoesD.tarefasParaAmanhaM import Tarefas_para_Amanha
 from bancoDadosD import resgataBancoDadosM, abrirCriarArquivoM, registraBancoDadosLocaisM
 
 
 def Menu():
     # cria banco dados para locais
-    arquivos = ["Locais_Para_Tarefas.txt", "Locais_Para_Tarefas_Backup.txt", "Salva_Pacotes.txt"]
-    abrirCriarArquivoM.Abrir_Criar_Arquivo(arquivos)
+    arquivos = ["Locais-Para-Tarefas.txt", "Locais-Para-Tarefas__Backup.txt"]
+    arquivos = abrirCriarArquivoM.Abrir_Criar_Arquivo(arquivos)
     arquivo = arquivos[0]
     arquivoBackup = arquivos[1]
 
@@ -16,27 +17,39 @@ def Menu():
     # registra primeiras opções
     opcoesMenu = resgataBancoDadosM.ResgataBancoDados(arquivo)
     if opcoesMenu == []:
-        opcoesMenu = ["", "Sair", "Adicionar Local de Tarefas"]
+        opcoesMenu = ["", "Adicionar Local de Tarefas", "Tarefas   para   o  Amanhã", "Sair"]
         registraBancoDadosLocaisM.RegistraBancoDadosLocais(arquivo, arquivoBackup, opcoesMenu)
+
+
+    # Imprime o menu do Menu
     ImprimirMenu()
     printMenuM.Print_Menu(opcoesMenu) 
     frase = "Qual a sua escolha? "
-    escolha = Escolha(frase, 0, len(opcoesMenu) - 3)
+    escolha = Escolha(frase, 0, len(opcoesMenu) - 2)
+
 
     # Sair
     if escolha == 0: return exit()
 
+
     # Registra uma Tarefa no Banco De Dados
-    if escolha == 99:
+    if escolha == 1:
         ImprimirMenu()
         print()
-        localDeTarefa = input("Entre o um 'Local De Tarefa': ")
+        localDeTarefa = input("Entre com o 'Local De Tarefa': ")
         localDeTarefa = localDeTarefa.title()
-        opcoesMenu.insert(len(opcoesMenu)-2, localDeTarefa)
+        opcoesMenu.insert(len(opcoesMenu)-1, localDeTarefa)
         registraBancoDadosLocaisM.RegistraBancoDadosLocais(arquivo, arquivoBackup, opcoesMenu)
         return Menu()
     
-    # Reune informações em pacote paratomada de decisões
+    # Tarefas para o dia de amanhã
+    if escolha == 2:
+        tarefa = opcoesMenu[escolha]
+        pacoteBairro = [tarefa, frase]
+        Tarefas_para_Amanha(pacoteBairro)
+    
+    
+    # Reune informações em pacote para tomada de decisões
     tarefa = opcoesMenu[escolha]
     pacoteBairro = [tarefa, frase]
     Distribuir_Tarefas(pacoteBairro)
@@ -50,7 +63,6 @@ def ImprimirMenu():
     tracoM.Traco("=")
 
 
-def Tarefas_para_Amanha():
-    print("Tarefas para Amanhã")
+
 
 
