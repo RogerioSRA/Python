@@ -14,4 +14,5 @@ def RegistraBancoDadosLocais(arquivo, arquivoBackup, opcoesMenu):
             bdLocal.write(item+"\n")
         bdLocal.close()
         bdLBackup.close()
+        
 

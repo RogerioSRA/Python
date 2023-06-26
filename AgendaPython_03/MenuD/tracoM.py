@@ -1,5 +1,3 @@
 def Traco(traco = "-", comprimentoTraco = 30):
-    print(comprimentoTraco * traco)
-
-
-    
+    print(comprimentoTraco*traco)
+    pass

@@ -1,4 +1,4 @@
-from menuM import Menu
+from menuD.menuM import Menu
 
 
 Menu()

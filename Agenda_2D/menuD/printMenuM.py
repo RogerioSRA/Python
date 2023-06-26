@@ -3,7 +3,7 @@ def Print_Menu(opcoesMenu):
     enum = 1
     for funcao in opcoesMenu:
         if funcao == "": continue
-        if funcao == "Adicionar Local de Tarefas" or funcao == "Tarefas   para   o  Amanhã":
+        if funcao == "Adicionar Local de Tarefas" or funcao == "Tarefas  para  o  Amanhã":
             corInicial = "\033[33m"
             corFinal = "\033[m"
         else:

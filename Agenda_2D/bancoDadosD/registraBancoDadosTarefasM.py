@@ -1,5 +1,5 @@
-from datetime import date
 from time import sleep
+from datetime import date
 from utilsD import zerosM
 
 
@@ -8,6 +8,7 @@ def RegistraBancoDadosTarefas(pacoteAcrescenta):
     arquivo = pacoteAcrescenta[0]
     tarefa = pacoteAcrescenta[1]
     posicao = EncontraUltimoArquivo(arquivo)
+    # print(arquivo)
     bancoDados = open(arquivo, 'at')
     bancoDados.write(posicao + ";" + data + ";" + tarefa + "\n")
     bancoDados.close()
@@ -20,12 +21,13 @@ def EncontraUltimoArquivo(arquivo):
             pass
         posicao = num.split(";")
         posicao = int(posicao[0]) + 1
-        print(posicao)
-        print("Try: posição = ", posicao)
+        # print(posicao)
+        # print("Try: posição = ", posicao)
         return str(posicao)
     except:
-        posicao = 0
-        print("Except: posição = ", posicao)
+        posicao = 1
+        # print("Except: posição = ", posicao)
         return str(posicao)
 
+    
     

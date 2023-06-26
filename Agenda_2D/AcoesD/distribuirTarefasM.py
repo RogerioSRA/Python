@@ -1,43 +1,66 @@
 import os
-import menuM
+import menuD.menuM as menuM
 from menuD.tracoM import Traco
-from menuD.headerM import Header
+from menuD.tituloM import Titulo
+from AcoesD.locaisM import Locais
 from utilsD.escolhaM import Escolha
 from menuD.printMenuM import Print_Menu
 from AcoesD.salvaPacotesM import Salva_Pacotes
+from AcoesD.listarTarefasM import Listar_Tarefas
+from AcoesD.excluirTarefasM import Excluir_Tarefa
 from AcoesD.acrescentarTarefaM import Acrescentar_Tarefa
 
 
-def Distribuir_Tarefas(pacoteBairro):
-    # tarefa, frase
+def Distribuir_Tarefas(local, pergunta, tarefa, titulo, retorno, arquivo, subtitulo):
+
+    # local = local
+    # pergunta = pergunta
+    # tarefa = tarefa
+    # titulo = titulo
+    # retorno = retorno
+    # arquivo = arquivo
+    # subtitulo = subtitulo
+
+    # local = pacote[0]
+    # pergunta = pacote[1]
+    # tarefa = pacote[2]
+    # titulo = pacote[3]
+    # retorno = pacote[4]
+    # arquivo = pacote[5]
+    # subtitulo = pacote[6]
     os.system("clear")
+    # print(pacote)
 
 
     # Salva ítens atuais do menú
-    Salva_Pacotes(pacoteBairro)
+    Salva_Pacotes(local, pergunta)
 
 
     # Monta menú
     opcoesMenu = ["", "Acrescentar Tarefa", "Excluir Tarefa", "Listar Tarefas", "Voltar", "Sair"]
-    arquivo = pacoteBairro[0].title()
+    arquivo = local.title()
+    local = arquivo
+    titulo = f" {local} "
     arquivo = arquivo.replace("  ","-")
-    arquivo = arquivo.replace(" ","-") +"__tarefas.txt"
-    header = f" {pacoteBairro[0]} "
-    frase = pacoteBairro[1]
+    arquivo = arquivo.replace(" ","-") +"-tarefas.txt"
+    arquivo = Locais(arquivo)
     Traco("=")
-    Header(header)
+    Titulo(titulo)
     Traco("=")
     Print_Menu(opcoesMenu)
 
 
-    escolha = Escolha(frase, 0, len(opcoesMenu) - 2)
+    escolha = Escolha(pergunta, 0, len(opcoesMenu) - 2)
     if escolha == 0 :
         return exit()
     elif escolha == len(opcoesMenu) -2 :
         return menuM.Menu()
     else:
-        tarefa = opcoesMenu[escolha]        
-        pacoteTarefa = [tarefa, header, frase, arquivo]
-        eval(opcoesMenu[escolha].replace(" ","_"))(pacoteTarefa)
+        tarefa = opcoesMenu[escolha]
+        retorno = Distribuir_Tarefas
+        # pacoteTarefa = [tarefa, header, frase, arquivo, local]
+        eval(opcoesMenu[escolha].replace(" ","_"))(local = local, pergunta = pergunta, tarefa = tarefa, titulo = titulo, retorno = retorno, arquivo = arquivo, subtitulo = subtitulo)
+        # eval(opcoesMenu[escolha].replace(" ","_"))(pacoteTarefa)
+    return Distribuir_Tarefas(local = local, pergunta = pergunta, tarefa = tarefa, titulo = titulo, retorno = retorno, arquivo = arquivo, subtitulo = subtitulo)
 
 

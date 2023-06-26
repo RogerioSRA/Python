@@ -2,9 +2,17 @@ from time import sleep
 from AcoesD.locaisM import Locais
 
 
-def Salva_Pacotes(pacoteRecebido = []):
+def Salva_Pacotes(*pacote):
+
+    local = pacote[0]
+    pergunta = pacote[1]
+    # tarefa = pacote[2]
+    # titulo = pacote[3]
+    # retorno = pacote[4]
+    # arquivo = pacote[5]
+    # subtitulo = pacote[6]
     arquivoPacote = Locais("Salva-Pacotes.txt")
-    pacote = pacoteRecebido
+    pacote = [local, pergunta]
     if pacote != []:
         pacoteBackup = pacote
         bdPacotes = open(arquivoPacote, "wt")
@@ -19,5 +27,6 @@ def Salva_Pacotes(pacoteRecebido = []):
         pacoteBackup.append(str(itemBack[0]))
     bdPacotes.close()
     return pacoteBackup
+
 
 
