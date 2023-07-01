@@ -1,0 +1,2 @@
+Dir_BancoDeDados/BancoDeDados/Menu_Opcoes.txt
+Dir_BancoDeDados/BancoDeDados/Menu_Opcoes__Backup.txt

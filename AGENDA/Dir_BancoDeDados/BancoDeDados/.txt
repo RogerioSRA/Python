@@ -1,0 +1,2 @@
+Dir_BancoDeDados/BancoDeDados/Sala.txt
+Dir_BancoDeDados/BancoDeDados/Sala__Backup.txt
