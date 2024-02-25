@@ -1,6 +1,6 @@
 from datetime import date
-from Ler_DocumentosM import Ler_DocumentosF
 import ConstrutorM as cttm
+from Ler_DocumentosM import Ler_DocumentosF
 
 
 def Criar_DocumentosF(nomeDoJogo, existe=None, jogo=[], reescrever = True):
